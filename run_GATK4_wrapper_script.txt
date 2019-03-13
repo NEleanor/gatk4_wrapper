@@ -1,0 +1,17 @@
+Running the GATK4 wrapper creator.
+
+find the json
+run 'python3 json_prep.py gatk4_json/json_name.json'
+take the output and add it or replace the tool_data for that tool in parse_gatk_json.py
+check for inputs and outputs. Add them to the tool_data
+run 'python3 parse_gatk_json.py --json gatk4_json/json_name.json --xml_out output'
+run 'python3 post_parser.py xml_name.xml'
+
+
+Test the wrapper. If special arguments are found:
+Create the special wrapper in teh macros section
+Name the templates with _cmd, _pre, _inputs, _outputs
+Add the argument to three spots:
+  parse_gatk_json.py line 88
+  post_parse.py line 21
+  json_prep.py line 30
